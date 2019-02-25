@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- EJS general head properties call -->
+        <%- include('../partials/head'); %>
+        <!-- Page specific style sheets / scripts -->
+        <%- include('../../scripts/scripts.ejs'); %>
+        <link rel="stylesheet" type="text/css" href="../../styles/index_styles.css">
+    </head>
+
+    <body>
+        <div id = "wrapper">
+            <% if (logged_in()){ %>
+                <%- include('../partials/logged_in_header')%>
+                <%- include('../partials/logged_in_index')%>
+            <% } else { %>
+                <%- include('../partials/logged_out_header')%>
+                <%- include('../partials/logged_out_index')%>
+            <% }%>
+        </div>
+    </body>
+
+</html>

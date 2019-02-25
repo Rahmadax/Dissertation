@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding :0
+}
+
+#wrapper{
+    height: 95vh;
+    width: 100%;
+}
+
+#header {
+    display: inline-block;
+    width : 80%;
+    height: 50px;
+    background-color: white;
+}
+
+.nav_button {
+    width: 80px;
+    height: 12px;
+    padding : 10px 10px 10px;
+    margin: 10px 0 0 10px;
+    border-radius: 4px;
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: Helvetica;
+    font-weight: bold;
+    color: dodgerblue;
+}
+
+.nav_button:hover {
+    color: black;
+}
+
+.nav_button p {
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    position: relative;
+}
+
+#profile_bar{
+    height: 50px;
+    width: 20%;
+    float: right;
+}

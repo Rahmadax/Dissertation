@@ -1,0 +1,11 @@
+<% display_header = function(){ %>
+    <% if (logged_out()) { %>
+        <% return ( '../partials/default_header' ) %>
+    <% } else { %>
+        <% return ( '../partials/logged_out_header' ) %>
+    <% } %>
+<% } %>
+
+<% logged_in = function(){ %>
+    <% return true %>
+<% } %>
