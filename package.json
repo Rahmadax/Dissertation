@@ -1,0 +1,26 @@
+{
+  "name": "ttm",
+  "version": "1.0.0",
+  "description": "A Simple Project test",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "Ollie Rahman",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "ol": "^5.3.1",
+    "pg": "^7.8.2",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.43.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10",
+    "parcel-bundler": "^1.12.2"
+  }
+}

@@ -1,0 +1,155 @@
+/* ================== Slider ================== */
+#timeline {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    width: 70%;
+    height: 50px;
+}
+
+#map_slider_cont {
+    width:100%;
+    height: 25px;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+
+#slider_container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 0;
+    height: 20px;
+    cursor: pointer;
+    background-color: black;
+    border: 1px solid black;
+}
+
+.slider::-moz-range-thumb {
+    width: 0;
+    height: 20px;
+    cursor: pointer;
+    background-color: black;
+    border: 1px solid black;
+}
+
+
+
+#map_slider_cont {
+    position: absolute;
+}
+
+#timeline_top{
+    display: block;
+    height: 25px;
+    width: 100%;
+}
+
+#month_slider {
+    display: inline-block;
+    float: right;
+    width: 15%;
+    height: 100%;
+}
+
+#month_range {
+    display: inline-block;
+    float: right;
+    width: 100%;
+    height: 90%;
+    bottom: 10%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#op_box {
+    display: inline-block;
+    width: 10%;
+    height: 25px;
+}
+
+#slider_output {
+    display: inline-block;
+    width: auto;
+    height: 30px;
+    float: left;
+}
+
+#month_output {
+    display: inline-block;
+    width: auto;
+    height:30px;
+    float: left;
+    margin-right: 4%;
+}
+
+.series_year{
+    display: inline-block;
+}
+
+#series_start_year {
+    float: left;
+}
+
+#series_end_year {
+    float: right;
+}
+
+#series_min_up{
+    float: right;
+    width: 0px;
+    height: 0px;
+    opacity: 0.3;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid black;
+    cursor: pointer;
+}
+
+#series_min_down{
+    float: left;
+    margin-left: 48.5%;
+    width: 0px;
+    height: 0px;
+    opacity: 0.3;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid black;
+    cursor: pointer;
+}
+
+
+#map_block_holder{
+
+    z-index: 0;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.map_block{
+    z-index: 1;
+    top: 0;
+    left: 25%;
+    background-color: red;
+    position: absolute;
+    height: 100%;
+    width: 25%;
+}

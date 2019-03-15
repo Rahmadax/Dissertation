@@ -1,11 +1,33 @@
 *{
     margin: 0;
-    padding :0
+    padding :0;
+    font-family: Helvetica;
 }
+
+*:visited{
+    text-decoration: none;
+    font-weight: bold;
+    color: dodgerblue;
+}
+
+a:hover{
+    color: black;
+}
+
+a {
+    text-decoration: none;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    color: dodgerblue;
+}
+
 
 #wrapper{
     height: 95vh;
     width: 100%;
+    background-color: darkgray;
 }
 
 #header {
@@ -16,7 +38,7 @@
 }
 
 .nav_button {
-    width: 80px;
+    width: auto;
     height: 12px;
     padding : 10px 10px 10px;
     margin: 10px 0 0 10px;
@@ -35,14 +57,42 @@
 }
 
 .nav_button p {
-    text-align: center;
-    top: 50%;
-    transform: translateY(-50%);
-    position: relative;
+
 }
 
+
+#profile_drop_div {
+    float: right;
+    margin-right: 3%;
+}
 #profile_bar{
     height: 50px;
     width: 20%;
     float: right;
+    background-color: white;
+}
+
+#profile_drop_down {
+    display: block;
+    position: absolute;
+    height: auto;
+    top:50px;
+    right: 20%;
+    padding-top: 20px;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.drop_option {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
 }
