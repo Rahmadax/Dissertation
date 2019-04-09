@@ -1,28 +1,20 @@
-<div id = timeline>
+<div id = "timeline" >
     <div id = "timeline_top">
         <div id = op_box>
-            <output id="month_output" class = "slider_outputs" ></output>
             <output id="slider_output" class = "slider_outputs" ></output>
-        </div>
-        <div id = series_min_up style="display: inline-block" onclick="max_month_slider()"></div>
-        <div id = "month_slider" style="display: none" onclick="month_slider_select(event)">
-            <input type="range" min="1" max="12" value="1" class="slider" id="month_range" oninput="month_slider_val_change(this.value)">
         </div>
     </div>
 
     <div id = "map_slider_cont">
         <div id = "map_block_holder">
-            <div class = "map_block">
-
-            </div>
         </div>
 
-        <div id = "slider_container" onclick="slider_select(event)">
-            <input type="range" min="1" max="1000" value="50" class="slider" id="timeline_range" oninput="slider_val_change(this.value)">
+        <div id = "slider_container">
+            <input type="range" min="-3000" max="2019" value="50" class="slider" id="timeline_range" oninput="slider_change()" onchange = "slider_select()">
 
-            <div id = "series_start_year" class = "series_year">1</div>
-            <div id = "series_min_down" class = series_year></div>
-            <div id = "series_end_year" class = "series_year">2</div>
+            <div id = "series_start_year" class = "series_year">-3000</div>
+            <div id = "series_min_down" class = series_year onclick="min_timeline();"></div>
+            <div id = "series_end_year" class = "series_year">2019</div>
         </div>
     </div>
 </div>

@@ -14,13 +14,13 @@
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.2",
-    "ol": "^5.3.1",
+    "ol": "^6.0.0-beta.3",
     "pg": "^7.8.2",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.43.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.10",
-    "parcel-bundler": "^1.12.2"
+    "parcel-bundler": "^1.12.3"
   }
 }

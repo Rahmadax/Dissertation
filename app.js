@@ -1,7 +1,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
-const path = require('path');
+
 
 // Database
 const db = require('./config/database');
@@ -25,21 +25,71 @@ app.use("/styles", express.static("./styles"));
 app.use("/scripts", express.static("./scripts"));
 
 // Page Directory
-app.get('/', (req, res) =>
-    res.render(__dirname+"/views/pages/index.ejs"));
+app.get('/', function(req, res) {
+    res.render(__dirname +"/views/pages/temp.ejs")
+});
+
+app.get('/index', function(req, res){
+    res.render(__dirname +"/views/pages/index.ejs")
+});
+
+app.get('/logged_out_index', function(req, res){
+    res.render(__dirname +"/views/pages/logged_out_index.ejs")
+});
+
 app.get('/profile', (req, res) =>
     res.render(__dirname+"/views/pages/profile.ejs"));
+
 app.get('/about', (req, res) =>
     res.render(__dirname+"/views/pages/about.ejs"));
 
+app.get('/404', function(req, res){
+    res.render(__dirname+"/views/pages/404.ejs");
+});
 
+
+const sequelize = require('sequelize');
 
 // Path Routes
-app.use('/events', require('./routes/events'));
-app.use('/users', require('./routes/users'));
-app.use('/markers', require('./routes/markers'));
-app.use('/maps', require('./routes/maps'));
-app.use('/seriess', require('./routes/seriess'));
+app.use('/events', require('./server/routes/events'));
+app.use('/users', require('./server/routes/users'));
+app.use('/markers', require('./server/routes/markers'));
+app.use('/maps', require('./server/routes/maps'));
+app.use('/seriess', require('./server/routes/seriess'));
+app.use('/relations', require('./server/routes/relations'));
+
+// Model Imports
+const User = require('./server/models/User');
+const Event = require('./server/models/Event');
+const Map = require('./server/models/Map');
+const Series = require('./server/models/Series');
+const Marker = require('./server/models/Marker');
+const Relation = require('./server/models/Relation');
+
+// Linker Model Imports
+const _User_Series = require('./server/models/_User_Series');
+
+// DB Relations
+User.hasMany(_User_Series);
+_User_Series.belongsTo(User);
+
+Series.hasMany(_User_Series);
+_User_Series.belongsTo(Series);
+
+User.hasMany(Relation);
+Relation.belongsTo(User);
+
+Series.hasMany(Map);
+Map.belongsTo(Series);
+
+Map.hasMany(Event);
+Event.belongsTo(Map);
+
+Event.hasMany(Marker);
+Marker.belongsTo(Event);
+
+
+
 
 
 // Overhead info

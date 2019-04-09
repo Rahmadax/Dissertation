@@ -1,0 +1,25 @@
+<div id = "timeline_extended">
+    <div id = "timeline_top">
+        <div id = op_box>
+            <output id="month_output" class = "slider_outputs" ></output>
+            <output id="slider_output" class = "slider_outputs" ></output>
+        </div>
+        <div id = series_min_up style="display: inline-block" onclick="max_month_slider()"></div>
+        <div id = "month_slider" style="display: none" onclick="slider_select()">
+            <input type="range" min="1" max="12" value="1" class="slider" id="month_range" oninput="slider_change()">
+        </div>
+    </div>
+
+    <div id = "map_slider_cont">
+        <div id = "map_block_holder">
+        </div>
+
+        <div id = "slider_container" onclick="slider_select()">
+            <input type="range" min="-3000" max="2019" value="50" class="slider" id="timeline_range" oninput="slider_change()">
+
+            <div id = "series_start_year" class = "series_year">-3000</div>
+            <div id = "series_min_down" class = series_year></div>
+            <div id = "series_end_year" class = "series_year">2019</div>
+        </div>
+    </div>
+</div>
