@@ -27,9 +27,6 @@ const Series = db.define('series', {
     },
     updatedAt: {
         type: Sequelize.DATE
-    },
-    userId: {
-        type: Sequelize.INTEGER
     }
 });
 

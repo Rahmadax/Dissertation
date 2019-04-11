@@ -5,14 +5,21 @@ const Series = require('../models/Series');
 const Users = require('../models/User');
 const User_Series = require('../models/_User_Series');
 const Op = Sequelize.Op;
+const gs = require('../route_scripts/general_scripts.js');
 
 // Find all series a user has access to.
 router.post('/get_all_seriess', (req, res) =>
     Users.findOne(
         {
-            attributes: ['id', 'username'], where: {logged_in: req.body.unique}
+            attributes: ['id', 'username', 'hideAdmin'], where: {logged_in: req.body.unique}
         })
         .then( u => {
+            let scope;
+            if (u['dataValues']['hideAdmin'] === true)
+                scope = '';
+            else
+                scope = 'admin';
+
             User_Series.findAll({
                 attributes: ['seriesId', 'read_write'],
                 where: {userId: u['id']}
@@ -29,7 +36,7 @@ router.post('/get_all_seriess', (req, res) =>
                         {
                             attributes: ['title', 'description', 'dateStart', 'dateEnd', 'unique'], where: {
                                 [Op.or]: [
-                                    {scope: 'admin'},
+                                    {scope: scope},
                                     {id: ids}
                                 ]
                             }
@@ -59,17 +66,20 @@ router.post('/get_test_series', (req, res) =>
 
 // Create a new user series.
 router.post('/create', function(req, res) {
-        Series.create({
-            title: req.body.title,
-            description: req.body.title,
-            dateStart: req.body.dateStart,
-            dateEnd: req.body.dateEnd
-        })
-            .then(
-                res.status(200)
-            )
-            .catch(err =>
-                console.log(err))
+    let unique = gs.gen_unique();
+    Series.create({
+        title: req.body.title,
+        description: req.body.title,
+        dateStart: req.body.dateStart,
+        dateEnd: req.body.dateEnd,
+        scope: req.body.scope,
+        unique: unique
+    })
+        .then(
+            console.log('here'),
+        )
+        .catch(err =>
+            console.log(err))
     }
 );
 

@@ -1,5 +1,5 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../../config/database');
-const User = require('../models/User');
-const Series = require('../models/Series');
+const Marker = require('../models/Marker');
+const Coord = require('../models/Coord');

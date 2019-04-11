@@ -6,6 +6,11 @@ function clear_perm_cookies() {
     localStorage.clear();
 }
 
+function clear_unique(){
+    localStorage.removeItem('unique');
+    sessionStorage.removeItem('unique');
+}
+
 
 function set_series_info(start_date, end_date){
     let end_month, start_month, start_year, end_year;
@@ -25,7 +30,6 @@ function set_series_info(start_date, end_date){
         start_month = parseInt(start_date.getMonth()) +1;           // Accounting for format differences PG -> Node
         end_month = parseInt(end_date.getMonth()) +1;
     }
-
     sessionStorage.setItem('series_start_year', start_year);
     sessionStorage.setItem('series_end_year', end_year);
     sessionStorage.setItem('series_start_month', start_month);
@@ -37,7 +41,29 @@ function set_series(series_unique){
     sessionStorage.setItem('series_unique', series_unique);
 }
 
-function login_cookies(unique){
-    clear_perm_cookies();
-    localStorage.setItem('unique', unique);
+function login_cookies(unique, check){
+    clear_unique();
+    if (check)
+        localStorage.setItem('unique', unique);
+    else
+        sessionStorage.setItem('unique', unique);
+}
+
+function save_overlap(overlap){
+    sessionStorage.setItem('overlap', JSON.stringify(overlap));
+}
+
+function take_overlap(date){
+    date = date.split('-');
+    let year = parseInt(date[0]);
+    let month = parseInt(date[1]);
+    let date_dict = JSON.parse(sessionStorage.getItem('overlap'));
+    if (typeof date_dict[year] !== 'undefined') {
+        if (typeof date_dict[year][month] !== 'undefined')
+            return date_dict[year][month];
+        else
+            return 0
+    } else {
+        return 0;
+    }
 }

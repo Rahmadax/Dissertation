@@ -147,7 +147,6 @@
 
 
 #map_block_holder{
-
     z-index: 0;
     top: 0;
     left: 0;
@@ -166,6 +165,7 @@
 .map_block_overlap{
     z-index: 2;
     top: 0;
+    opacity: 0.9;
     position: absolute;
     height: 100%;
 }
@@ -200,4 +200,13 @@
 @keyframes slide_in {
     from {opacity: 0; bottom: 0}
     to  {opacity: 100%; bottom: 2%;}
+}
+
+#popup{
+    position: absolute;
+    width: auto;
+    height: 25px;
+    background-color: lightgrey;
+    border: 1px solid black;
+    border-radius: 0 0 10px 10px;
 }

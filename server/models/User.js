@@ -22,6 +22,9 @@ const User = db.define('user', {
     status: {
         type: Sequelize.STRING
     },
+    hideAdmin: {
+        type: Sequelize.BOOLEAN
+    },
     createdAt: {
         type: Sequelize.DATE
     },

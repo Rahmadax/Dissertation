@@ -4,7 +4,8 @@ function user_logout() {
     let xhr = new XMLHttpRequest();
     xhr.open("POST", '/users/log_out', true);
     xhr.onload = function(){
-        clear_perm_cookies();
+        clear_unique();
+        location.replace('/logged_out_index');
     };
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify({
@@ -19,7 +20,6 @@ function user_login() {
     xhr.onload = function(){
         login_cookies(this.responseText);
     };
-
     xhr.send();
 }
 
@@ -35,7 +35,7 @@ function user_logged_in() {
 
 // Create a new user account.
 function create_user(username, password, email) {
-    var xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
     xhr.open("POST", '/users/create', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify({
@@ -45,40 +45,24 @@ function create_user(username, password, email) {
     }));
 }
 
-function login_verification(){
-    let username = document.getElementById('login_username').value;
-    let password = document.getElementById('login_password').value;
-    if (username === '') {
-        gen_alert_box('Please enter a username');
-    } else if (password === '') {
-        gen_alert_box('Please enter a password')
-    } else if (username === 'username') {
-        gen_alert_box('Nice try.')
-    } else if (username === 'a username' || password === 'a password'){
-        gen_alert_box('Sigh...')
-    } else {
-        let xhr = new XMLHttpRequest();
-        xhr.open("POST", '/users/login', true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.onload = function () {
-            if (this.responseText === 'error'){
-                gen_alert_box('Username or Password not found.')
-            } else {
-                let res = JSON.parse(this.responseText);
-                let unique = res[0];
-                document.getElementById('profile_drop').innerText = res[1];
-                localStorage.setItem('unique', unique);
-                load_seriess(unique)
-            }
-        };
-        xhr.send(JSON.stringify({
-            username: String(username),
-            password: String(password)
-        }));
+// Is user Logged in?
+function flip_view_admin() {
+    let truth = false;
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', 'users/flip', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function(){
+        console.log('done')
+    };
+    xhr.send(JSON.stringify({
+        unique: localStorage.getItem('unique'),
+        truth: !truth
+    }));
+}
 
-        min_login_box();
-    }
-
-
-
+function get_unique(){
+    if (localStorage.getItem('unique') != null)
+        return localStorage.getItem('unique');
+    else
+        return sessionStorage.getItem('unique');
 }

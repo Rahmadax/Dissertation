@@ -16,7 +16,7 @@ function load_seriess(){
         change_tab('series');
     };
     xhr.send(JSON.stringify({
-        unique: localStorage.getItem('unique')
+        unique: get_unique()
     }));
 }
 
@@ -101,6 +101,13 @@ function load_test_seriess(){
 
 function create_series(){
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", '/create', true);
-    xhr.send();
+    xhr.open("POST", '/seriess/create', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify({
+        title: "Test Yeezy Series",
+        description: "Yeezy series around",
+        dateStart: "1066-01-01",
+        dateEnd: "1072-05-01",
+        scope: "admin"
+    }));
 }

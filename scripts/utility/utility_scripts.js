@@ -1,7 +1,9 @@
 // ===================== File for unusual scripts that are used rarely, but broadly. ===================================== //
 
-function min_login_box(){
-    document.getElementById('login_box').style.display = "none";
+function close_popup(id){
+    console.log(id);
+    let element = document.getElementById(id);
+    document.getElementById('wrapper').removeChild(element);
 }
 
 function get_month(val){
@@ -94,3 +96,4 @@ function is_AD(){
 function is_BC(){
     return (ps_start_year() < 0 && ps_end_year() < 0);
 }
+

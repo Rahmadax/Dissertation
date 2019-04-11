@@ -14,16 +14,6 @@ window.onclick = function(event) {
     }
 };
 
-
-function draw_login_box(){
-    new EJS({
-        url: 'partials/spider-chart.ejs'
-    }).update(
-        document.querySelector('.panel-body.text-center'),
-        result
-    );
-}
-
 function gen_alert_box(error){
     let id = document.getElementsByClassName('alert_box').length + 1;
     let alert_box = document.createElement("div");
@@ -125,21 +115,29 @@ function ps_end_month(){
     return parseInt(sessionStorage.getItem('series_end_month'));
 }
 
-function render_check(route, redirect){
-    if (localStorage.getItem('unique') === null)
+function render_check(route, redirect, origin){
+    let login;
+    if (localStorage.getItem('unique') == null && (sessionStorage.getItem('unique') == null) && !origin)
         location.replace('/logged_out_index');
-    let xhr = new XMLHttpRequest();
-    xhr.open('POST', '/users/logged_in', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.onload = function() {
-        if (redirect) {
-            if (this.responseText === 'true') {
-                location.replace(route);
-            } else
-                location.replace('/logged_out_index');
-        }
-    };
-    xhr.send(JSON.stringify({
-        unique: localStorage.getItem('unique')
-    }));
+    if (localStorage.getItem('unique') != null)
+        login = localStorage.getItem('unique');
+    else if (sessionStorage.getItem('unique') != null)
+        login = sessionStorage.getItem('unique');
+
+    if (login != null){
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', '/users/logged_in', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onload = function() {
+            if (redirect) {
+                if (this.responseText === 'true')
+                    location.replace(route);
+                else if (!origin)
+                    location.replace('/logged_out_index');
+            }
+        };
+        xhr.send(JSON.stringify({
+            unique: login
+        }));
+    }
 }

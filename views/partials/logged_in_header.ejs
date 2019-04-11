@@ -5,30 +5,26 @@
                 <p><a href = "/">Home</a></p>
             </div>
 
-            <div class = "nav_button">
-                <p> Test Function</p>
-            </div>
-
             <div class = "nav_button" onclick="create_map()">
                 <p>Create Map</p>
             </div>
 
-            <div class = "nav_button" onclick="user_logout()">
-                <p>Log out</p>
+            <div class = "nav_button" onclick="block_user()">
+                <p>Block Someone</p>
             </div>
 
-            <div class = "nav_button" onclick="get_login_box()">
-                <p>Test Login Box</p>
+            <div class = "nav_button" onclick = add_friend()>
+                <p> Add Friend </p>
             </div>
 
-            <div class = "nav_button" onclick="gen_alert_box('This is an Error, Error')">
-                <p>Test Alert Box</p>
+            <div class = "nav_button">
+                <p>Blank Test</p>
             </div>
 
             <div id = "profile_drop_div" class = "nav_button" >
-                <p id = "profile_drop" class = "drop_button" onclick="display_dropdown(this.id)">Profile</p>
+                <p id = "profile_drop" class = "drop_button" onclick="display_dropdown(this.id)"></p>
                 <div id = "profile_drop_down" class = "drop" style = "display: none;">
-                    <p><a href="/profile" class = "drop_option">My Profile</a></p>
+                    <p class = "drop_option" onclick="">User Tools</p>
                     <p><a href="/about" class = "drop_option">About</a></p>
                     <p class = "drop_option" onclick="user_logout()">Logout</p>
                 </div>

@@ -21,7 +21,11 @@ function update_slider(start_date, end_date, type) {
 
 // Calculates the positions of the coloured timeline blocks and displays them on the timeline.
 function add_map_blocks(map_dates){
-    // let overlap = get_overlap(map_dates)[0];
+    let overlap_master = get_overlap(map_dates);
+    let overlap = overlap_master[0];
+    let overlap_dict = overlap_master[1];
+    save_overlap(overlap_dict);
+
     let offset_ratio;
     if (year_0())
         offset_ratio = ((ps_end_year() - ps_start_year() - 2) * 12) + (12 - ps_start_month() + ps_end_month() + 1);
@@ -55,7 +59,6 @@ function add_map_blocks(map_dates){
         new_block.style.backgroundColor = map_dates[i][4];
         block_holder.appendChild(new_block);
     }
-    /*
     // Overlap Blocks
     let k = Object.keys(overlap);
     for (let j = 0; j < k.length; j++){
@@ -68,7 +71,6 @@ function add_map_blocks(map_dates){
         new_block.style.backgroundColor = "black";
         block_holder.appendChild(new_block);
     }
-    */
 }
 
 
@@ -98,24 +100,66 @@ function get_overlap(maps){
             min = parseInt(min);
             max = parseInt(max);
             for (let k = min; k <= max; k++) { // Between start and end month
-                if (year_dict[j][k] > 0)
+                if (k === 12) { // Edge case.
+                    year_dict[j-1] = {};
+                    if (year_dict[j-1][12] > 1){
+                        year_dict[j-1][12] = year_dict[j-1][k] + 1; // Increment month counter.
+                    } else {
+                        year_dict[j-1][12] = 1;
+                    }
+                } else if (year_dict[j][k] > 0) {
                     year_dict[j][k] = year_dict[j][k] + 1; // Increment month counter.
-                else
+                } else {
                     year_dict[j][k] = 1;
+                }
             }
         }
     }
     // Calculate overlap
     let output = [];
+    let useful_dict = {};
     let year_keys = Object.keys(year_dict);
     for (let i = 0; i < year_keys.length; i++){ // For each year in dictionary
+        let dict = {};
         let month_keys = Object.keys(year_dict[year_keys[i]]);
         for (let j = 0; j < month_keys.length; j++){ // For each month in each year
             let num = year_dict[year_keys[i]][month_keys[j]];
             if (num > 1){ // If more than one map shares a month.
+                dict[month_keys[j]] = num;
                 output.push([year_keys[i], month_keys[j], num])
             }
         }
+        if (Object.keys(dict).length > 0)
+            useful_dict[year_keys[i]] = dict;
     }
-    return([output, year_dict]);
+    return([output, useful_dict]);
+}
+
+function draw_notification(slider, val) {
+    let min = slider.min;
+    let max = slider.max;
+    let sel_months = slider.value;
+    let popup;
+    if (val === 0 && document.getElementById('popup')) {
+        document.getElementById('popup').style.display = "none";
+    } else if (document.getElementById('popup')){
+        popup = document.getElementById('popup');
+        document.getElementById('popup_text').innerText = (String(val) + " maps");
+    } else if (val !== 0 && !document.getElementById('popup')) {
+        popup = document.createElement('popup');
+        popup.setAttribute('id', 'popup');
+        let popup_text = document.createElement('p');
+        popup_text.setAttribute('id', 'popup_text');
+        popup.appendChild(popup_text);
+        document.getElementById('wrapper').appendChild(popup);
+        document.getElementById('popup_text').innerText = (String(val) + " maps");
+    }
+    if (popup) {
+        document.getElementById('popup').style.display = "block";
+        let offset = ((sel_months / (max - min)) * slider.offsetWidth + slider.getBoundingClientRect().left - (popup.offsetWidth / 2));
+        popup.style.left = (String(offset) + "px");
+        let b = document.getElementById('timeline').getBoundingClientRect().top - 5;
+        popup.style.top = (String(b) + "px");
+        document.getElementById('popup').style.display = "block";
+    }
 }

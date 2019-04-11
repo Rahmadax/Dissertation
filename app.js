@@ -47,7 +47,7 @@ app.get('/404', function(req, res){
     res.render(__dirname+"/views/pages/404.ejs");
 });
 
-
+// Generic Imports
 const sequelize = require('sequelize');
 
 // Path Routes

@@ -1,7 +1,10 @@
 // Repeated functions
 // When user moves the slider. Calculates the number of months represented on the slider(s)
 function slider_change() {
-    let sel_months = document.getElementById("timeline_range").value;
+    let slider = document.getElementById("timeline_range");
+    let sel_months = slider.value;
+    let num_maps = take_overlap(convert_output(sel_months));
+    draw_notification(slider, num_maps);
     if (extended())
         slider_change_output((sel_months*12) + document.getElementById("month_range").value);
     else
