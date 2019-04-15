@@ -49,6 +49,13 @@ function login_cookies(unique, check){
         sessionStorage.setItem('unique', unique);
 }
 
+function get_unique(){
+    if (localStorage.getItem('unique'))
+        return localStorage.getItem('unique');
+    else
+        return sessionStorage.getItem('unique');
+}
+
 function save_overlap(overlap){
     sessionStorage.setItem('overlap', JSON.stringify(overlap));
 }

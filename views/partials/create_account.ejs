@@ -1,0 +1,10 @@
+<template id = "create_account_template" >
+    <div id = "ca_box" class = "user_box">
+        <div id = "ca_title" ><p>Create Account</p></div>
+        <div class = "close" onclick="min_user_box('ca_box')"></div>
+        <input id = "ca_username" class = "input_box" value = "Username">
+        <input id = "ca_password" class = "input_box" value = "password" type = "password">
+        <input id = "ca_email" class = "input_box" value = "Email">
+        <button id = "ca_select" class = "input_button" onclick = "create_account_verification()">Create</button>
+    </div>
+</template>

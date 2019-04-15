@@ -5,26 +5,49 @@
                 <p><a href = "/">Home</a></p>
             </div>
 
-            <div class = "nav_button" onclick="create_map()">
-                <p>Create Map</p>
+            <div class = "nav_button" onclick="save_to_DB()">
+                <p>Save to DB</p>
             </div>
 
-            <div class = "nav_button" onclick="block_user()">
-                <p>Block Someone</p>
+            <div class = "nav_button" onclick="move_it(10,10)">
+                <p>Move Yo ass</p>
             </div>
 
-            <div class = "nav_button" onclick = add_friend()>
-                <p> Add Friend </p>
+            <div class = "nav_button" onclick = undo_last_polygon()>
+                <p> Undo </p>
             </div>
 
-            <div class = "nav_button">
-                <p>Blank Test</p>
+            <div class = "nav_button" onclick = "restart_polygon()">
+                <p>Restart</p>
+            </div>
+
+            <div class = "nav_button" onclick = "new_polygon()">
+                <p>New Polygon</p>
+            </div>
+
+            <div class = "nav_button" onclick = "draw_marker_popup()">
+                <p>Marker box</p>
+            </div>
+
+            <div class = "nav_button" onclick = "new_layer_group()">
+                <p>New Layer Group</p>
+            </div>
+
+            <div class = "nav_button" onclick = "get_layers()">
+                <p>Get Layers</p>
+            </div>
+
+            <div id = "notification_box" class = "nav_button" onclick = "notifications_drop()" style="display:none">
+                <p id = "num_notifications" >3</p>
+                <div id = "notification_box_drop" style="display:none;">
+
+                </div>
             </div>
 
             <div id = "profile_drop_div" class = "nav_button" >
                 <p id = "profile_drop" class = "drop_button" onclick="display_dropdown(this.id)"></p>
                 <div id = "profile_drop_down" class = "drop" style = "display: none;">
-                    <p class = "drop_option" onclick="">User Tools</p>
+                    <p class = "drop_option" onclick="draw_template_element('user_tools', 'wrapper'); get_relations()">User Tools</p>
                     <p><a href="/about" class = "drop_option">About</a></p>
                     <p class = "drop_option" onclick="user_logout()">Logout</p>
                 </div>

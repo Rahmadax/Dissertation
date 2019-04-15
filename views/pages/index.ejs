@@ -3,13 +3,18 @@
     <head>
         <!-- EJS general head properties and Open Layers call -->
         <%- include('../partials/head'); %>
-        <%- include('../partials/ol_head'); %>
         <!-- Page specific style sheets / scripts -->
         <link rel="stylesheet" type="text/css" href="../../styles/index_styles.css">
     </head>
 
-    <body onload="render_check('', false); load_seriess()">
+    <body onload="render_check('', false); load_seriess(); check_notifications();">
         <div id = "wrapper">
+            <div id = "template_container">
+                <%- include('../partials/user_tools.ejs')%>
+                <%- include('../partials/friend_tab.ejs')%>
+                <%- include('../partials/blocked_tab.ejs')%>
+                <%- include('../partials/marker_box.ejs')%>
+            </div>
             <%- include('../partials/logged_in_header')%>
             <%- include('../partials/logged_in_index')%>
         </div>

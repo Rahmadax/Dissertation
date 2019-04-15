@@ -60,10 +60,31 @@ a {
 
 }
 
+#notification_box{
+    height: 10px;
+    margin-right: 10%;
+    float: right;
+    border-radius: 50%;
+    background-color: #DC143C;
+    border: 1px solid grey;
+}
+
+#notification_box p {
+    color: white;
+    vertical-align: middle;
+}
+
+#notification_box_drop {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 50px;
+    right: 10%;
+    background-color: red;
+}
 
 #profile_drop_div {
     float: right;
-    margin-right: 3%;
 }
 #profile_bar{
     height: 50px;

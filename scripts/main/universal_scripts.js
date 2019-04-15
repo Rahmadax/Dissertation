@@ -5,6 +5,13 @@ function display_dropdown(id) {
     drop.style.display = "block";
 }
 
+function notifications_drop(){
+    let right = document.getElementById('notification_box').getBoundingClientRect().right;
+    let elem = document.getElementById('notification_box_drop');
+    elem.style.left = right+'px';
+    elem.style.display = 'block'
+}
+
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
     if (!event.target.matches('.drop_button')) {
@@ -47,23 +54,19 @@ function close_alert_box(id) {
     wrapper.removeChild(elem);
 }
 
-
-
-// Make the DIV element draggable:
-function drag() {
-    document.getElementById('login_box').setAttribute('onmousedown', '');
-    dragElement(document.getElementById("login_box"));
+function drag_div() {
+    while (document.getElementById('user_tools_box')) {
+        dragElement("user_tools");
+    }
 }
 
-function dragElement(elmnt) {
-    console.log('here');
-    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    if (document.getElementById(elmnt.id + "_header")) {
+function dragElement(element) {
+    element = document.getElementsByClassName(element+'_box');
+    console.log(element);
+    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    if (document.getElementById(element+'_box')) {
         // if present, the header is where you move the DIV from:
-        document.getElementById(elmnt.id + "_header").onmousedown = dragMouseDown;
-    } else {
-        // otherwise, move the DIV from anywhere inside the DIV:
-        elmnt.onmousedown = dragMouseDown;
+        document.getElementById(element+'_box').onmousedown = dragMouseDown;
     }
 
     function dragMouseDown(e) {

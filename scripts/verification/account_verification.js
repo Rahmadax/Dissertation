@@ -31,14 +31,9 @@ function login_verification(){
 }
 
 function create_account_verification(){
-    /*
     let username = document.getElementById('ca_username').value;
     let password = document.getElementById('ca_password').value;
     let email = document.getElementById('ca_email').value;
-    */
-    let username = "Peeneenee";
-    let password = "pw";
-    let email = "email@Josup.com";
     if (username === '') {
         gen_alert_box('Please enter a username');
     } else if (password === '') {

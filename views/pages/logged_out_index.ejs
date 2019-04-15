@@ -3,13 +3,16 @@
     <head>
         <!-- EJS general head properties and Open Layers call -->
         <%- include('../partials/head'); %>
-        <%- include('../partials/ol_head'); %>
         <!-- Page specific style sheets / scripts -->
         <link rel="stylesheet" type="text/css" href="../../styles/index_styles.css">
     </head>
 
     <body  onload="render_check('/index', true, true); load_test_seriess()">
         <div id = "wrapper">
+            <div id = "template_container">
+                <%- include('../partials/login_box')%>
+                <%- include('../partials/create_account')%>
+            </div>
             <%- include('../partials/logged_out_header')%>
             <%- include('../partials/logged_out_index')%>
         </div>

@@ -1,15 +1,7 @@
-<div id = "event_bar">
-    <div id = "event_bar_top">
-        <p class = event_tab id = 'marker_tab' onclick="change_tab('marker')">Markers</p>
-        <p class = event_tab id = 'event_tab' onclick="change_tab('event')">Events</p>
-        <p class = event_tab id = 'map_tab' onclick="change_tab('map')">Maps</p>
-        <p class = event_tab id = 'series_tab'  onclick="change_tab('series')">Series</p>
+<template id = "event_box_template">
+    <div class = "event_box">
+        <div class = "event_box_title"></div>
+        <div class = "event_box_date"></div>
+        <div class = "event_box_summary"></div>
     </div>
-
-    <div id = inset_bar>
-        <div id = markers_tab class = event_bar_inset style="display: none;" ></div>
-        <div id = events_tab class = event_bar_inset style="display: none;" ></div>
-        <div id = maps_tab class = event_bar_inset style="display: none;" ></div>
-        <div id = seriess_tab class = event_bar_inset style="display: block;"></div>
-    </div>
-</div>
+</template>

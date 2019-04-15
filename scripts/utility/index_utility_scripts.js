@@ -8,13 +8,13 @@ function box_add_title(title, append_box){
     append_box.appendChild(new_event_box_title);
 }
 
-function box_add_description(description, append_box){
+function box_add_summary(summary, append_box){
     /* Append everything together */
-    let new_event_box_description = document.createElement("div");
-    new_event_box_description.setAttribute("class", "event_box_description");
-    let new_event_box_description_p = document.createTextNode(description);
-    new_event_box_description.appendChild(new_event_box_description_p);
-    append_box.appendChild(new_event_box_description);
+    let new_event_box_summary = document.createElement("div");
+    new_event_box_summary.setAttribute("class", "event_box_summary");
+    let new_event_box_summary_p = document.createTextNode(summary);
+    new_event_box_summary.appendChild(new_event_box_summary_p);
+    append_box.appendChild(new_event_box_summary);
 }
 
 function box_add_dates(start_date, end_date, append_box){

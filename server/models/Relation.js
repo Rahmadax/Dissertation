@@ -7,11 +7,11 @@ const Relation = db.define('relation', {
         primaryKey: true,
         autoIncrement: true
     },
-    userID_1: {
-        type: Sequelize.INTEGER
+    username_1: {
+        type: Sequelize.STRING
     },
-    userID_2: {
-        type: Sequelize.INTEGER
+    username_2: {
+        type: Sequelize.STRING
     },
     type: {
         type: Sequelize.STRING

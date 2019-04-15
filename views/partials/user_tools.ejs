@@ -1,0 +1,44 @@
+
+<template id = "user_tools_template">
+    <div id = "user_tools_wrapper">
+        <div id = "user_tools_tab_container">
+            <div class = "user_tools_wrapper_tab" onclick = "tools_change_tab('user_tools_box')"><p>Tools</p></div>
+            <div class = "user_tools_wrapper_tab" onclick = "tools_change_tab('user_tools_options')"><p>Options</p></div>
+            <div class = "user_tools_wrapper_tab" onclick = "tools_change_tab('user_tools_share')"><p>Share</p></div>
+        </div>
+
+
+        <div id = "user_tools_box" class = "tools_tab">
+            <div id = "user_tools_header" draggable = "true" ondragstart="dragElement('user_tools')"></div>
+            <div id = "user_tools_title"><p>User Tools</p></div>
+            <div id = "user_tools_interaction_text">
+            <p>User Interaction</p>
+            </div>
+            <input id = "user_tools_user_input" class = "input_box">
+            <button id = "user_tools_friend_button" class = "input_button" onclick = "handle_user_tools_load(); user_interaction('friend')">Add As Friend</button>
+            <button id = "user_tools_block_button" class = "input_button" onclick = "user_interaction('block')">Block User</button>
+            <div id = "user_tools_friend_box" class = "tools_box">
+
+            </div>
+            <div id = "user_tools_blocked_box" class = "tools_box">
+
+            </div>
+        </div>
+
+
+
+        <div id = "user_tools_options" class = "tools_tab" style="display:none;">
+            <div id = "user_tools_header" draggable = "true" ondragstart="dragElement('user_tools')"></div>
+            
+        </div>
+
+
+
+
+
+        <div id = "user_tools_share" class = "tools_tab" style="display:none;">
+            <div id = "user_tools_header" draggable = "true" ondragstart="dragElement('user_tools')"></div>
+
+        </div>
+    </div>
+</template>

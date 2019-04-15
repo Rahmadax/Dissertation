@@ -1,17 +1,7 @@
-<div id="map" class="map"></div>
-<script type="text/javascript">
-    var map = new ol.Map({
-        target: 'map',
-        layers: [
-            new ol.layer.Tile({
-                source: new ol.source.OSM(),
-            })
-        ],
-        view: new ol.View({
-            center: ol.proj.fromLonLat([0, 0]),
-            zoom: 4,
+<div id="map_test"></div>
+<script src="../../scripts/map/main.js"></script>
+<script src="../../scripts/map/map_drawing.js"></script>
+<script src="../../scripts/map/map_movement.js"></script>
+<script src="../../scripts/map/leaflet_queries.js"></script>
 
-        })
-    });
 
-</script>

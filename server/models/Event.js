@@ -31,6 +31,9 @@ const Event = db.define('event', {
     updatedAt: {
         type: Sequelize.DATE
     },
+    starting_zoom: {
+        type: Sequelize.INTEGER,
+    },
     mapId: {
         type: Sequelize.INTEGER,
     }

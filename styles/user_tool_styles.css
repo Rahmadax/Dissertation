@@ -1,0 +1,283 @@
+/* ================== User Tools ================== */
+
+#user_tools_wrapper {
+    position: absolute;
+    top: 100px;
+    left:100px;
+    width: 540px;
+    height: 1000px;
+}
+
+#user_tools_wrapper p {
+    font-family: Helvetica;
+    font-size: 18px;
+}
+
+#user_tools_tab_container{
+    position:absolute;
+    width:35px;
+    height: 80%;
+    right:0;
+    margin-top: 10%;
+}
+
+.user_tools_wrapper_tab {
+    position: relative;
+    float: right;
+    width: 40px;
+    height: 100px;
+    margin-top: 12px;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 1px 1px 0.1em grey;
+    background-color: #f2f2f2;
+    border-right: 1px solid grey;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    border-left: 1px solid white;
+}
+
+.user_tools_wrapper_tab p {
+    margin-top: 40%;
+    margin-left: 30%;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+.tools_tab{
+    position:absolute;
+    width: 500px;
+    height: 1000px;
+    background-color: #f2f2f2;
+    border: 1px solid grey;
+    border-radius: 10px;
+    box-shadow: 1px 1px 0.1em grey;
+}
+
+#user_tools_header{
+    position:absolute;
+    height:35px;
+    width: 100%;
+    border-bottom: 1px solid grey;
+}
+#user_tools_title{
+    position: absolute;
+    top:5%;
+    width: 100%;
+    text-align: center;
+}
+
+#user_tools_title p{
+    font-family: Helvetica;
+    font-size: 25px;
+}
+
+#user_tools_interaction_text{
+    position: absolute;
+    top: 12%;
+    left: 5%;
+    width: 30%;
+}
+
+#user_tools_user_input{
+    top: 12%;
+    left: 40%;
+    width: 50%;
+    height: 25px;
+}
+
+#user_tools_friend_button{
+    height: 3%;
+    top: 15.5%;
+    left: 40%;
+    width: 20%;
+}
+
+#user_tools_block_button{
+    height: 3%;
+    top: 15.5%;
+    left: 70%;
+    width: 20%;
+}
+
+.tools_box{
+    position: absolute;
+    width: 80%;
+    height: 20%;
+    top: 22%;
+    left: 10%;
+    border-top: 2px solid darkgray;
+    border-left: 2px solid darkgray;
+    background-color: lightgrey;
+    overflow: auto;
+}
+
+#user_tools_friend_box{
+    top: 25%;
+}
+
+#user_tools_blocked_box{
+    top: 50%;
+}
+
+.user_tools_user_box {
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+    border-bottom: 1px solid black;
+}
+
+/* ================== General Box Styles ================== */
+.user_box {
+    position: absolute;
+    top: 10%;
+    left: 60%;
+    width: 300px;
+    height: 250px;
+    background-color: #f2f2f2;
+    border: 1px solid grey;
+    border-radius: 10px;
+    box-shadow: 1px 1px 0.1em grey;
+}
+
+.input_box {
+    position:absolute;
+    background-color: lightgrey;
+    border-radius: 5px 0 0 5px ;
+    left: 10%;
+    height: 10%;
+    width: 65%;
+}
+
+.input_button{
+    position: absolute;
+    left: 100px;
+    height: 50px;
+    width: 100px;
+    border-radius: 5px;
+    background-color: lightgrey;
+}
+
+/* ================== Login Box ================== */
+.close {
+    position: absolute;
+    left: 88%;
+    top: 1%;
+    width: 15px;
+    height: 15px;
+    opacity: 0.3;
+}
+.close:hover {
+    opacity: 1;
+}
+.close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: #333;
+}
+.close:before {
+    transform: rotate(45deg);
+}
+.close:after {
+    transform: rotate(-45deg);
+}
+
+#login_username{
+    top: 10%;
+}
+
+#login_username_image{
+    position: absolute;
+    top: 10%;
+    left: 77%;
+    height: 10%;
+    width: 10%;
+    background-color: lightgrey;
+    border-radius: 0 5px 5px 0 ;
+}
+
+#login_need_account{
+    position: absolute;
+    top: 21%;
+    left: 10%;
+    height: 5%;
+    width: 65%;
+}
+
+#login_need_account a {
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#login_password{
+    top: 30%;
+}
+
+#login_password_image{
+    position: absolute;
+    top: 30%;
+    left: 77%;
+    height: 10%;
+    width: 10%;
+    background-color: lightgrey;
+    border-radius: 0 5px 5px 0 ;
+}
+
+#login_select_button{
+    top: 125px;
+}
+
+#login_checkbox{
+    position: absolute;
+    font-size: 10px;
+    top: 75%;
+    height: 10%;
+    left: 65%;
+    width: 10%;
+}
+
+#login_CB_text {
+    position: absolute;
+    top: 75%;
+    height: 10%;
+    left: 17.5%;
+}
+
+#login_bottom_box{
+    position: absolute;
+    top: 90%;
+    left: 10%;
+    width: 80%;
+    height: 10%;
+}
+
+
+#login_bottom_box p {
+    text-align: center;
+    font-size: 12px;
+}
+
+#login_bottom_box p a {
+    cursor: pointer;
+}
+
+/* ================== Create Account Box ================== */
+
+#ca_username {
+    top: 15%;
+}
+
+#ca_password {
+    top: 35%;
+}
+
+#ca_email {
+    top: 55%;
+}
+
+#ca_select {
+    top: 75%;
+}

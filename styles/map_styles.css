@@ -1,4 +1,46 @@
-.map {
+#map_test {
     height: 100%;
     width: 100%;
+    z-index: 2;
+}
+
+#marker_box {
+    position:absolute;
+    width: 350px;
+    height: 100px;
+    border: 1px solid grey;
+    background-color: #f5f5f0;
+    left: 5%;
+    bottom: 150px;
+    z-index: 5;
+}
+
+#marker_box_drag {
+    position:absolute;
+    width: 100%;
+    height: 15%;
+    border-bottom: 1px solid grey;
+}
+
+#marker_box_close {
+    position: absolute;
+    right: 0;
+    top:0;
+    width: 20px;
+    height: 100%;
+    border-left: 1px solid grey;
+}
+
+#marker_box_info{
+    position:absolute;
+    top: 15%;
+    width: 100%;
+    height: 42.5%;
+}
+
+#marker_box_options{
+    position:absolute;
+    top: 57.5%;
+    width: 100%;
+    height: 42.5%;
 }

@@ -77,7 +77,7 @@ router.post('/get_events_handler', (req, res) =>
                         .then(e => {
                             let events = [];
                             for (let j = 0; j < e.length; j++)
-                                events.push([e[j]['title'], e[j]['description'], e[j]['date_start'], e[j]['date_end'], e[j]['color'], e[j]['starting_loc']]);
+                                events.push([e[j]['title'], e[j]['description'], e[j]['date_start'], e[j]['date_end'], e[j]['color'], e[j]['starting_loc'], e[j]['starting_zoom']]);
                             res.status(200).json(events);
                         })
                         .catch(err =>

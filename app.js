@@ -23,6 +23,8 @@ app.use(bodyParser.json());
 // static CSS / JS requirements.
 app.use("/styles", express.static("./styles"));
 app.use("/scripts", express.static("./scripts"));
+var publicDir = require('path').join(__dirname,'/images');
+app.use(express.static(publicDir));
 
 // Page Directory
 app.get('/', function(req, res) {
@@ -57,6 +59,7 @@ app.use('/markers', require('./server/routes/markers'));
 app.use('/maps', require('./server/routes/maps'));
 app.use('/seriess', require('./server/routes/seriess'));
 app.use('/relations', require('./server/routes/relations'));
+app.use('/coords', require('./server/routes/coords'));
 
 // Model Imports
 const User = require('./server/models/User');
@@ -65,6 +68,7 @@ const Map = require('./server/models/Map');
 const Series = require('./server/models/Series');
 const Marker = require('./server/models/Marker');
 const Relation = require('./server/models/Relation');
+const Coord = require('./server/models/Coord');
 
 // Linker Model Imports
 const _User_Series = require('./server/models/_User_Series');
@@ -75,9 +79,6 @@ _User_Series.belongsTo(User);
 
 Series.hasMany(_User_Series);
 _User_Series.belongsTo(Series);
-
-User.hasMany(Relation);
-Relation.belongsTo(User);
 
 Series.hasMany(Map);
 Map.belongsTo(Series);

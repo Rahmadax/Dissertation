@@ -4,8 +4,10 @@
   "description": "A Simple Project test",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "parcel app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build --public-url . app.js"
   },
   "author": "Ollie Rahman",
   "license": "MIT",
@@ -14,6 +16,7 @@
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.2",
+    "leaflet": "^1.4.0",
     "ol": "^6.0.0-beta.3",
     "pg": "^7.8.2",
     "pg-hstore": "^2.3.2",

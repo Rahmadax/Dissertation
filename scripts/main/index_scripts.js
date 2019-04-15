@@ -23,7 +23,7 @@ function draw_series_box(unique, title, description, start_date, end_date) {
 
     box_add_title(title, new_series_box);
     box_add_dates(start_date, end_date, new_series_box);
-    box_add_description(description, new_series_box);
+    box_add_summary(description, new_series_box);
 
     let series_bar = document.getElementById("seriess_tab");
     series_bar.appendChild(new_series_box);
@@ -35,7 +35,7 @@ function draw_map_box(map){
     new_map_box.setAttribute("class", "event_box");
 
     box_add_title(map[0], new_map_box);
-    box_add_description(map[1], new_map_box);
+    box_add_summary(map[1], new_map_box);
 
     let maps_bar = document.getElementById("maps_tab");
     maps_bar.appendChild(new_map_box);
@@ -44,12 +44,13 @@ function draw_map_box(map){
 // Elements in event: 0 - Title, 1 - Description, 2 - Start Date, 3 -End Date, 4 - Color, 5 - Starting Coords.
 function draw_event_box(event){
     let new_event_box = document.createElement("div");
-    new_event_box.setAttribute("class", "event_box");
-    new_event_box.setAttribute("onclick", "change_location(" + event[5]['x'] + ',' + event[5]['y'] + ")");
+    new_event_box.setAttribute("class", "event_box")
+    let latlong = [event[5]['x'], event[5]['y']];
+    new_event_box.setAttribute("onclick", "move_to_location(" + latlong + ", " + event[6] + ")");
 
     box_add_title(event[0], new_event_box);
     box_add_dates(event[2], event[3], new_event_box);
-    box_add_description(event[1], new_event_box);
+    box_add_summary(event[1], new_event_box);
 
 
     let event_bar = document.getElementById("events_tab");
